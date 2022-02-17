@@ -1,4 +1,4 @@
-from helpers import Menu, Leer_Data, Leer_Intrucciones
+from helpers import Menu, Leer_Data, Leer_Intrucciones, reporte
 from LexicoInstrucciones import LexicoInstrucciones
 
 def main():
@@ -14,10 +14,14 @@ def main():
             print(txt_intrucciones)
         elif opcion == 3:
             lexico_intrucciones = LexicoInstrucciones(txt_intrucciones)
-            #lexico_intrucciones.printTokens()
+            #lexic1o_intrucciones.printTokens()
             lexico_intrucciones.GuardarDatos()
         elif opcion ==4:
+            print("Imprimiendo reporte")
+            reporte()
+        elif opcion ==5:
             print("Terminando el programa...")
+            exit()
         opcion = Menu()
 
 if __name__ == "__main__":
