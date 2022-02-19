@@ -1,6 +1,9 @@
-{
+<?
     Nombre:"Report1",
     Nombre:"Report2",
     Nombre:"Report3",
-    Nombre:"Report4"
-}
+    Grafica: "Barras",
+    Titulo: "Reporte de Ventas Agosto",
+    TituloX: "Producto,
+    TituloY: "Total"
+?>

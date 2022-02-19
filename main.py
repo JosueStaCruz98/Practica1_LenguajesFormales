@@ -14,15 +14,16 @@ def main():
             print(txt_intrucciones)
         elif opcion == 3:
             lexico_intrucciones = LexicoInstrucciones(txt_intrucciones)
-            #lexic1o_intrucciones.printTokens()
+            lexico_intrucciones.printTokens()
             lexico_intrucciones.GuardarDatos()
         elif opcion ==4:
             print("Imprimiendo reporte")
             reporte()
         elif opcion ==5:
             print("Terminando el programa...")
-            exit()
+            exit()#Termina la ejecución del programa
         opcion = Menu()
+
 
 if __name__ == "__main__":
     main()

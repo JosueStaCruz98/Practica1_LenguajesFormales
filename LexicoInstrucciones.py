@@ -33,12 +33,12 @@ class LexicoInstrucciones():
                     self.estado = 2
                     self.lexema += actual
                     continue
-                elif actual == '{':
-                    self.lexema += actual
+                elif actual == '<' and entrada[i+1]=='?':
+                    self.lexema += actual+entrada[i+1]
                     self.AgregarToken(TypeToken.LLAVE_ABRE.name)
                     continue
-                elif actual == '}':
-                    self.lexema += actual
+                elif actual == '?' and entrada[i+1]=='>':
+                    self.lexema += actual+entrada[i+1]
                     self.AgregarToken(TypeToken.LLAVE_CIERRA.name)
                     continue
                 elif actual == ',':
@@ -95,8 +95,7 @@ class LexicoInstrucciones():
                     i -= 1
                     continue
 
-
-
+    #Función que agregan los token
     def AgregarToken(self, tipo):
         self.tokens.append(Token(self.lexema, tipo))
         self.lexema =''
@@ -104,7 +103,7 @@ class LexicoInstrucciones():
         self.tipo = TypeToken.DESCONOCIDO
 
     def Reservada(self):
-        palabra = self.lexema.upper();
+        palabra = self.lexema.upper()
         #lista_palabras = ['NOMBRE', 'GRAFICA']
         if palabra =='NOMBRE':
             self.tipo = TypeToken.NOMBRE  #Mejor control
@@ -114,12 +113,13 @@ class LexicoInstrucciones():
             return True
         return False
 
-    def printTokens(self):
+    #Función que impirmen los valores de los token
+    """def printTokens(self):
         for token in self.tokens:
-            print(token.lexema + " -> Tipo: " + str(token.type))
+            print(token.lexema + " -> Tipo: " + str(token.type)) """
 
     
-
+    #Función que guardan los datos de las instrucciones
     def GuardarDatos(self):
         longitud = len(self.tokens)
         for i in range(longitud):
